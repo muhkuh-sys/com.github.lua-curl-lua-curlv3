@@ -30,5 +30,4 @@ ExternalProject_Add(TARGET_libssh2
                     INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
 )
 
-SET(LIBSSH2_LIBRARY      ${CMAKE_CURRENT_BINARY_DIR}/install/lib/libzlibstatic.a   CACHE INTERNAL "The complete path to the zlib library.")
-SET(LIBSSH2_INCLUDE_DIR  ${CMAKE_CURRENT_BINARY_DIR}/install/include               CACHE INTERNAL "The include folder for the zlib library.")
+SET(LIBSSH2_CMAKE      ${CMAKE_CURRENT_BINARY_DIR}/install/lib/cmake/libssh2/Libssh2Config.cmake   CACHE INTERNAL "The CMAKE configuration file for the ssh2 library.")
