@@ -28,6 +28,8 @@ ExternalProject_Add(TARGET_libssh2
                     URL_HASH SHA1=baf2d1fb338eee531ba9b6b121c64235e089e0f5
                     CMAKE_ARGS ${PRJ_CMAKE_ARGS}
                     INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
+                    TEST_AFTER_INSTALL 1
+                    TEST_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/install/lib/cmake/libssh2/Libssh2Config.cmake ${CMAKE_CURRENT_BINARY_DIR}/install/lib/cmake/libssh2/LibSSH2Config.cmake
 )
 
-SET(LIBSSH2_CMAKE      ${CMAKE_CURRENT_BINARY_DIR}/install/lib/cmake/libssh2/Libssh2Config.cmake   CACHE INTERNAL "The CMAKE configuration file for the ssh2 library.")
+SET(LIBSSH2_CMAKE_MODULE_PATH  ${CMAKE_CURRENT_BINARY_DIR}/install/lib/cmake/libssh2  CACHE INTERNAL "The CMAKE configuration file for the ssh2 library.")
