@@ -7,10 +7,12 @@ import sys
 
 __astrStandardDlls = [
 	'advapi32',
+	'crypt32',
 	'kernel32',
 	'msvcrt',
 	'setupapi',
 	'user32',
+	'wldap32',
 	'ws2_32'
 ]
 

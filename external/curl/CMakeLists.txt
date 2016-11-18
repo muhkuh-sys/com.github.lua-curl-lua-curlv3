@@ -34,6 +34,19 @@ ExternalProject_Add(TARGET_curl
                     INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
 )
 
-SET(CURL_LIBRARY      ${CMAKE_CURRENT_BINARY_DIR}/install/lib/libcurl.a  CACHE INTERNAL "The complete path to the library.")
-SET(CURL_INCLUDE_DIR  ${CMAKE_CURRENT_BINARY_DIR}/install/include        CACHE INTERNAL "The include folder for the library.")
+
+SET(CURL_LIBRARIES_LIST "")
+LIST(APPEND CURL_LIBRARIES_LIST "${CMAKE_CURRENT_BINARY_DIR}/install/lib/libcurl.a")
+LIST(APPEND CURL_LIBRARIES_LIST "-lmsvcrt")
+LIST(APPEND CURL_LIBRARIES_LIST "-ladvapi32")
+LIST(APPEND CURL_LIBRARIES_LIST "-lshell32")
+LIST(APPEND CURL_LIBRARIES_LIST "-luser32")
+LIST(APPEND CURL_LIBRARIES_LIST "-lkernel32")
+LIST(APPEND CURL_LIBRARIES_LIST "-lwldap32")
+LIST(APPEND CURL_LIBRARIES_LIST "-lwinmm")
+LIST(APPEND CURL_LIBRARIES_LIST "-lws2_32")
+LIST(APPEND CURL_LIBRARIES_LIST "-lcrypt32")
+
+SET(CURL_LIBRARIES    ${CURL_LIBRARIES_LIST}                       CACHE INTERNAL "The complete path to the library.")
+SET(CURL_INCLUDE_DIR  ${CMAKE_CURRENT_BINARY_DIR}/install/include  CACHE INTERNAL "The include folder for the library.")
 
