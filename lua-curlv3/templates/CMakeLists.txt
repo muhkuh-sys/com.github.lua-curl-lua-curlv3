@@ -5,7 +5,7 @@ PROJECT("lua-curlv3")
 ENABLE_TESTING()
 FIND_PACKAGE(PythonInterp REQUIRED)
 
-MESSAGE("curl libs: ${CURL_LIBRARIES}")
+MESSAGE("CURL_LIBRARIES: ${CURL_LIBRARIES}")
 
 # Build the Lua modules.
 ADD_LIBRARY(TARGET_lua_curlv3 MODULE
@@ -23,7 +23,7 @@ TARGET_INCLUDE_DIRECTORIES(TARGET_lua_curlv3
 TARGET_COMPILE_DEFINITIONS(TARGET_lua_curlv3
                            PRIVATE CURL_STATICLIB)
 TARGET_LINK_LIBRARIES(TARGET_lua_curlv3
-                      PRIVATE ${CURL_LIBRARIES} ${LUA_LIBRARIES})
+                      PRIVATE ${CURL_LIBRARIES} ${LUA_LIBRARIES} -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lwldap32 -lwinmm -lws2_32 -lcrypt32)
 SET_TARGET_PROPERTIES(TARGET_lua_curlv3 PROPERTIES PREFIX "" OUTPUT_NAME "lcurl")
 
 
