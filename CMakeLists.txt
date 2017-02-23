@@ -42,13 +42,7 @@ ENDIF(${CMAKE_BUILD_TOOL} MATCHES "(msdev|VCExpress|devenv)")
 #----------------------------------------------------------------------------
 #
 # Include the projects in the subdirectories.
-# NOTE: build the external components first. Many parts depend on them.
 #
-
-IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
-	ADD_SUBDIRECTORY(external)
-ENDIF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
-
 ADD_SUBDIRECTORY(lua-curlv3)
 
 #----------------------------------------------------------------------------
