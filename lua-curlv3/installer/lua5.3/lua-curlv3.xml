@@ -2,7 +2,7 @@
 <jonchki-artifact version="1.0">
 	<info group="com.github.lua-curl"
 	      module="lua-curlv3"
-	      artifact="lua5.1-lua-curlv3"
+	      artifact="lua5.3-lua-curlv3"
 	      version="@PROJECT_VERSION@"
 	      vcs-id="@PROJECT_VERSION_VCS@">
 		<license name="MIT"/>
@@ -12,10 +12,10 @@
 		</description>
 	</info>
 	<build-dependencies>
-		<dependency group="org.lua" module="lua" artifact="lua5.1" version="5.1.5.1"/>
+		<dependency group="org.lua" module="lua" artifact="lua5.3" version="5.3.3.1"/>
 		<dependency group="se.haxx" module="curl" artifact="curl" version="7.51.0.0"/>
 	</build-dependencies>
 	<dependencies>
-		<dependency group="org.lua" module="lua" artifact="lua5.1"/>
+		<dependency group="org.lua" module="lua" artifact="lua5.3"/>
 	</dependencies>
 </jonchki-artifact>
