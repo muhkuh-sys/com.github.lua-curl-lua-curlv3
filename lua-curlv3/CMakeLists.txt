@@ -12,8 +12,8 @@ SET(PROJECT_VERSION  "${VERSION_EXTERNAL}.${VERSION_PACKAGE}")
 INCLUDE(${CMAKE_HOME_DIRECTORY}/cmake/version.cmake)
 
 # Filter the jonchki configuration.
-CONFIGURE_FILE(installer/lua5.1/lua-curlv3.xml
-               ${CMAKE_CURRENT_BINARY_DIR}/lua5.1-curlv3-${PROJECT_VERSION}.xml
+CONFIGURE_FILE(installer/lua${BUILDCFG_LUA_VERSION}/lua-curlv3.xml
+               ${CMAKE_CURRENT_BINARY_DIR}/lua${BUILDCFG_LUA_VERSION}-curlv3-${PROJECT_VERSION}.xml
                @ONLY)
 
 #----------------------------------------------------------------------------
@@ -22,8 +22,6 @@ CONFIGURE_FILE(installer/lua5.1/lua-curlv3.xml
 #
 
 IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
-	MESSAGE("CURL_LIBRARIES PRE: ${CURL_LIBRARIES}")
-
 	# Select the LUA version.
 	INCLUDE(${CMAKE_HOME_DIRECTORY}/cmake/muhkuh_lua.cmake)
 
@@ -37,10 +35,10 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	ENDIF(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	LIST(APPEND PRJ_CMAKE_ARGS "-DLUA_LIBRARIES=${LUA_LIBRARIES}")
 	LIST(APPEND PRJ_CMAKE_ARGS "-DLUA_INCLUDE_DIR=${LUA_INCLUDE_DIR}")
-	LIST(APPEND PRJ_CMAKE_ARGS "-DCURL_LIBRARIES=${CURL_LIBRARIES}")
-	LIST(APPEND PRJ_CMAKE_ARGS "-DCURL_INCLUDE_DIR=${CURL_INCLUDE_DIR}")
 	LIST(APPEND PRJ_CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=''")
 
+	LIST(APPEND PRJ_CMAKE_ARGS "-Dcurl_DIR=${curl_DIR}")
+	LIST(APPEND PRJ_CMAKE_ARGS "-Dnet.zlib-zlib_DIR=${net.zlib-zlib_DIR}")
 
 	ExternalProject_Add(TARGET_lua_curlv3
 	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3
@@ -51,4 +49,7 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	                    TEST_COMMAND make test
 	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
 	)
+
+	INSTALL(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/install/lib/
+	        DESTINATION ${INSTALL_DIR_LUA_MODULES})
 ENDIF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
