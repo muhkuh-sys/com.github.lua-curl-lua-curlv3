@@ -3,7 +3,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT("lua-curlv3")
 
 ENABLE_TESTING()
-FIND_PACKAGE(PythonInterp REQUIRED)
+FIND_PACKAGE(PythonInterp 2.7 REQUIRED)
 
 
 # Get the includes and library for zlib.
