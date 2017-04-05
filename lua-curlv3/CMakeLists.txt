@@ -50,6 +50,11 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
 	)
 
+	# Write a version file.
+	FILE(WRITE ${CMAKE_CURRENT_BINARY_DIR}/install/com.github.lua-curl-lua-curlv3.version "SET(com.github.lua-curl-lua-curlv3_VERSION ${VERSION_EXTERNAL}.${VERSION_PACKAGE})")
+
 	INSTALL(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/install/lib/
 	        DESTINATION ${INSTALL_DIR_LUA_MODULES})
+	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/install/com.github.lua-curl-lua-curlv3.version
+	        DESTINATION .)
 ENDIF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
