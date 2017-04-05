@@ -16,14 +16,14 @@ SET(INSTALL_UBUNTU_1610_X86    "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.
 SET(INSTALL_UBUNTU_1610_X86_64 "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.2/ubuntu_1610_x86_64")
 
 # Get the project version. Both the WIN32 and the WIN64 folder have the same version file.
-INCLUDE(${INSTALL_WIN32}/com.github.lua-curl-lua-curlv3.version)
+INCLUDE(${INSTALL_WINDOWS_X86}/com.github.lua-curl-lua-curlv3.version)
 SET(PROJECT_VERSION ${com.github.lua-curl-lua-curlv3_VERSION})
 
-SET(CPACK_OUTPUT_FILE_PREFIX targets/jonchki/repository/com/github/lua-curl/lua5.2-lua-curlv3/${PROJECT_VERSION})
+SET(CPACK_OUTPUT_FILE_PREFIX targets/jonchki/repository/com/github/lua-curl/lua-curlv3/${PROJECT_VERSION})
 SET(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
 SET(CPACK_PACKAGE_FILE_NAME "lua5.2-lua-curlv3-${PROJECT_VERSION}")
 
-SET(CPACK_GENERATOR "ZIP")
+SET(CPACK_GENERATOR "TXZ")
 INCLUDE(CPack)
 
 
@@ -85,5 +85,5 @@ CONFIGURE_FILE(lua-curlv3.xml
 SET(POM_ARTIFACT_ID  "lua5.2-lua-curlv3")
 SET(POM_GROUP_ID     "com.github.lua-curl")
 SET(POM_VERSION      "${PROJECT_VERSION}")
-SET(POM_PACKAGING    "zip")
+SET(POM_PACKAGING    "tar.xz")
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/pom.xml ${CPACK_OUTPUT_FILE_PREFIX}/pom.xml)
