@@ -9,14 +9,7 @@ if strDistId=='windows' then
   end
 
 elseif strDistId=='ubuntu' then
-  if strDistVersion=='12.04' then
-    if strCpuArch=='x86' then
-      t:install('ubuntu_1204_x86/lua_plugins/lcurl.so',       '${install_lua_cpath}/')
-    elseif strCpuArch=='x86_64' then
-      t:install('ubuntu_1204_x86_64/lua_plugins/lcurl.so',    '${install_lua_cpath}/')
-    end
-
-  elseif strDistVersion=='14.04' then
+  if strDistVersion=='14.04' then
     if strCpuArch=='x86' then
       t:install('ubuntu_1404_x86/lua_plugins/lcurl.so',       '${install_lua_cpath}/')
     elseif strCpuArch=='x86_64' then

@@ -6,8 +6,6 @@ INCLUDE(../../../cmake/version.cmake)
 
 SET(INSTALL_WINDOWS_X86        "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/windows_x86")
 SET(INSTALL_WINDOWS_X86_64     "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/windows_x86_64")
-SET(INSTALL_UBUNTU_1204_X86    "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/ubuntu_1204_x86")
-SET(INSTALL_UBUNTU_1204_X86_64 "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/ubuntu_1204_x86_64")
 SET(INSTALL_UBUNTU_1404_X86    "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/ubuntu_1404_x86")
 SET(INSTALL_UBUNTU_1404_X86_64 "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/ubuntu_1404_x86_64")
 SET(INSTALL_UBUNTU_1604_X86    "${CMAKE_CURRENT_SOURCE_DIR}/../../../build/lua5.1/ubuntu_1604_x86")
@@ -34,9 +32,6 @@ INCLUDE(CPack)
 INSTALL(FILES ${INSTALL_WINDOWS_X86}/lua_plugins/lcurl.dll
         DESTINATION windows_x86/lua_plugins)
 
-INSTALL(FILES ${INSTALL_UBUNTU_1204_X86}/lua_plugins/lcurl.so
-        DESTINATION ubuntu_1204_x86/lua_plugins)
-
 INSTALL(FILES ${INSTALL_UBUNTU_1404_X86}/lua_plugins/lcurl.so
         DESTINATION ubuntu_1404_x86/lua_plugins)
 
@@ -53,9 +48,6 @@ INSTALL(FILES ${INSTALL_UBUNTU_1610_X86}/lua_plugins/lcurl.so
 #
 INSTALL(FILES ${INSTALL_WINDOWS_X86_64}/lua_plugins/lcurl.dll
         DESTINATION windows_x86_64/lua_plugins)
-
-INSTALL(FILES ${INSTALL_UBUNTU_1204_X86_64}/lua_plugins/lcurl.so
-        DESTINATION ubuntu_1204_x86_64/lua_plugins)
 
 INSTALL(FILES ${INSTALL_UBUNTU_1404_X86_64}/lua_plugins/lcurl.so
         DESTINATION ubuntu_1404_x86_64/lua_plugins)
