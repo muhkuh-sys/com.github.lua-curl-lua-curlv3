@@ -4,7 +4,8 @@ PROJECT("lua-curlv3")
 
 INCLUDE(ExternalProject)
 
-SET(VERSION_EXTERNAL "0.3.6")
+SET(VERSION_EXTERNAL "0.3.7")
+SET(VERSION_DEV      "-git9ac72c7")
 SET(VERSION_PACKAGE  "1")
 SET(PROJECT_VERSION  "${VERSION_EXTERNAL}.${VERSION_PACKAGE}")
 
@@ -42,8 +43,8 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 
 	ExternalProject_Add(TARGET_lua_curlv3
 	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3
-	                    URL ${CMAKE_CURRENT_SOURCE_DIR}/Lua-cURLv3-${VERSION_EXTERNAL}.tar.gz
-	                    URL_HASH SHA1=554b56baa465b8f948193f9ca689aab595311b06
+	                    URL ${CMAKE_CURRENT_SOURCE_DIR}/Lua-cURLv3-${VERSION_EXTERNAL}${VERSION_DEV}.tar.gz
+	                    URL_HASH SHA1=765f14e4f3923b7cc7cba4e520367e1c46737381
 	                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/templates ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3/src/TARGET_lua_curlv3
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
 	                    TEST_COMMAND make test
