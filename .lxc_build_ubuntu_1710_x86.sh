@@ -13,7 +13,7 @@ PRJDIR=`pwd`
 mkdir -p ${PRJDIR}/build
 
 # Start the container and mount the project folder.
-lxc init mbs-ubuntu-1610-x64 ${CONTAINER}
+lxc init mbs-ubuntu-1710-x86 ${CONTAINER}
 lxc config device add ${CONTAINER} projectDir disk source=${PRJDIR} path=/tmp/work
 lxc start ${CONTAINER}
 sleep 5
@@ -29,14 +29,14 @@ lxc exec ${CONTAINER} -- bash -c 'apt-get update --assume-yes'
 # Install the project specific packages.
 lxc exec ${CONTAINER} -- bash -c 'apt-get install --assume-yes lua5.1 lua-filesystem lua-expat lua51-mhash lua-sql-sqlite3'
 
-# Build the 64bit version.
+# Build the 32bit version.
 lxc exec ${CONTAINER} -- bash -c 'cd /tmp/work && bash .build03_linux.sh'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1610_x86_64_lua5.1.tar.gz --gzip --directory /tmp/work/build/linux/lua5.1/install .'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1610_x86_64_lua5.2.tar.gz --gzip --directory /tmp/work/build/linux/lua5.2/install .'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1610_x86_64_lua5.3.tar.gz --gzip --directory /tmp/work/build/linux/lua5.3/install .'
-lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1610_x86_64_lua5.1.tar.gz build/
-lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1610_x86_64_lua5.2.tar.gz build/
-lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1610_x86_64_lua5.3.tar.gz build/
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1710_x86_lua5.1.tar.gz --gzip --directory /tmp/work/build/linux/lua5.1/install .'
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1710_x86_lua5.2.tar.gz --gzip --directory /tmp/work/build/linux/lua5.2/install .'
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1710_x86_lua5.3.tar.gz --gzip --directory /tmp/work/build/linux/lua5.3/install .'
+lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1710_x86_lua5.1.tar.gz build/
+lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1710_x86_lua5.2.tar.gz build/
+lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1710_x86_lua5.3.tar.gz build/
 
 # Stop and remove the container.
 lxc stop ${CONTAINER}
