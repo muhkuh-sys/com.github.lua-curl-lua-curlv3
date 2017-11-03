@@ -34,15 +34,8 @@ TARGET_INCLUDE_DIRECTORIES(TARGET_lua_curlv3
                            PRIVATE ${LUA_INCLUDE_DIR} ${CURL_INCLUDE_DIR})
 TARGET_COMPILE_DEFINITIONS(TARGET_lua_curlv3
                            PRIVATE CURL_STATICLIB)
-
 TARGET_LINK_LIBRARIES(TARGET_lua_curlv3
-                      PRIVATE curl net.zlib-zlib::zlibstatic ${LUA_LIBRARIES} ${CURL_LINK_FLAGS})
-# Link to pthread on Windows.
-IF((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") AND (${CMAKE_COMPILER_IS_GNUCC}))
-	TARGET_LINK_LIBRARIES(TARGET_lua_curlv3
-	                      PRIVATE pthread)
-ENDIF((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") AND (${CMAKE_COMPILER_IS_GNUCC}))
-
+                      PRIVATE curl net.zlib-zlib::zlibstatic ${LUA_LIBRARIES} ${CURL_LINK_FLAGS} pthread)
 SET_TARGET_PROPERTIES(TARGET_lua_curlv3 PROPERTIES LINK_FLAGS ${CURL_LINK_FLAGS})
 SET_TARGET_PROPERTIES(TARGET_lua_curlv3 PROPERTIES PREFIX "" OUTPUT_NAME "lcurl")
 
