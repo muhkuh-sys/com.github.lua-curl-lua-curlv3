@@ -5,7 +5,8 @@
 	      artifact="lua5.2-lua-curlv3"
 	      version="@PROJECT_VERSION@"
 	      vcs-id="@PROJECT_VERSION_VCS@"
-	      extension="tar.xz">
+	      extension="tar.xz"
+	      platform="@JONCHKI_PLATFORM@">
 		<license name="MIT"/>
 		<author name="Alexey Melnichuk" url="https://github.com/Lua-cURL/Lua-cURLv3" />
 		<description>
@@ -14,7 +15,7 @@
 	</info>
 	<dependencies>
 		<build-dependency group="org.lua" module="lua" artifact="lua" version="5.2"/>
-		<build-dependency group="se.haxx" module="curl" artifact="curl" version="7.56.1.1"/>
+		<build-dependency group="se.haxx" module="curl" artifact="curl" version="7.60.0.1"/>
 		<dependency group="org.lua" module="lua" artifact="lua"/>
 	</dependencies>
 </jonchki-artifact>
