@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 2.8)
 
 PROJECT("com.github.lua-curl-lua-curlv3")
 
+# Get the VCS version for the jonchki configuration.
+INCLUDE(cmake/version.cmake)
+INCLUDE(cmake/platform.cmake)
+MESSAGE("Building for: ${JONCHKI_PLATFORM}")
+
 
 # Enable tests (see here for details: http://www.vtk.org/Wiki/CMake/Testing_With_CTest)
 ENABLE_TESTING()
