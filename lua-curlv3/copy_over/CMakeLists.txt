@@ -28,6 +28,7 @@ ADD_LIBRARY(TARGET_lua_curlv3 MODULE
             src/lcmime.c
             src/lcmulti.c
             src/lcshare.c
+            src/lcurlapi.c
             src/lcurl.c
             src/lcutils.c)
 
