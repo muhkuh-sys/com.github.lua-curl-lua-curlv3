@@ -4,7 +4,7 @@ PROJECT("lua-curlv3")
 
 INCLUDE(ExternalProject)
 
-SET(VERSION_EXTERNAL "0.3.9")
+SET(VERSION_EXTERNAL "0.3.10")
 SET(VERSION_DEV      "")
 SET(VERSION_PACKAGE  "1")
 SET(PROJECT_VERSION  "${VERSION_EXTERNAL}.${VERSION_PACKAGE}")
@@ -44,7 +44,7 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	ExternalProject_Add(TARGET_lua_curlv3
 	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3
 	                    URL ${CMAKE_CURRENT_SOURCE_DIR}/Lua-cURLv3-${VERSION_EXTERNAL}${VERSION_DEV}.tar.gz
-	                    URL_HASH SHA1=597e0e95cc04c7194bc49e7a8729de29d5002205
+	                    URL_HASH SHA1=2a5f5b00c93e51a4ceb6043d63a903d51689743d
 	                    PATCH_COMMAND "${PYTHON_EXECUTABLE}" ${CMAKE_HOME_DIRECTORY}/cmake/tools/apply_patches.py --working-folder ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3/src/TARGET_lua_curlv3 --copy-folder ${CMAKE_CURRENT_SOURCE_DIR}/copy_over --patch-folder ${CMAKE_CURRENT_SOURCE_DIR}/patches --strip 1
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
 	                    TEST_COMMAND make test
@@ -59,7 +59,7 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	# Build a package for the selected platform.
 	#
 
-	SET(CPACK_OUTPUT_FILE_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/targets/jonchki/repository/com/github/lua-curl/lua-curlv3/${PROJECT_VERSION})
+	SET(CPACK_OUTPUT_FILE_PREFIX ${CMAKE_BINARY_DIR}/../../repository/com/github/lua-curl/lua-curlv3/${PROJECT_VERSION})
 	SET(CPACK_INCLUDE_TOPLEVEL_DIRECTORY FALSE)
 	SET(CPACK_PACKAGE_FILE_NAME "lua${BUILDCFG_LUA_VERSION}-lua-curlv3-${PROJECT_VERSION}-${JONCHKI_PLATFORM}")
 
