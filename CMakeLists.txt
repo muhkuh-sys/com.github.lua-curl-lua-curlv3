@@ -17,32 +17,9 @@ INCLUDE(cmake/muhkuh_installation_folders.cmake)
 OPTION(BUILDCFG_ONLY_JONCHKI_CFG "Build only the jonchki configuration. This is used for the resolve phase. The default is OFF."
        "OFF")
 
-#----------------------------------------------------------------------------
-#
-# Find all packages.
-#
-
-# Python is used for some test scripts.
-FIND_PACKAGE(PythonInterp 2.7 REQUIRED)
-
-
-#----------------------------------------------------------------------------
-#
-# Set custom definitions for several compiler.
-#
-
-# Microsoft: Do not show msvs security warnings about unsafe functions.
-IF(${CMAKE_BUILD_TOOL} MATCHES "(msdev|VCExpress|devenv|nmake)")
-	ADD_DEFINITIONS(-D_CRT_SECURE_NO_WARNINGS)
-	ADD_DEFINITIONS(-D_CRT_SECURE_NO_DEPRECATE)
-ENDIF(${CMAKE_BUILD_TOOL} MATCHES "(msdev|VCExpress|devenv|nmake)")
-
-
-# Microsoft: Set warning level to 2.
-if(${CMAKE_BUILD_TOOL} MATCHES "(msdev|VCExpress|devenv)")
-	ADD_DEFINITIONS(/W2)
-ENDIF(${CMAKE_BUILD_TOOL} MATCHES "(msdev|VCExpress|devenv)")
-
+# Python is needed for the hash and patch tool.
+FIND_PACKAGE(Python3 REQUIRED COMPONENTS Interpreter)
+SET(PYTHON_EXECUTABLE "${Python3_EXECUTABLE}")
 
 #----------------------------------------------------------------------------
 #

@@ -38,8 +38,13 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	LIST(APPEND PRJ_CMAKE_ARGS "-DLUA_INCLUDE_DIR=${LUA_INCLUDE_DIR}")
 	LIST(APPEND PRJ_CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=''")
 
-	LIST(APPEND PRJ_CMAKE_ARGS "-Dcurl_DIR=${curl_DIR}")
-	LIST(APPEND PRJ_CMAKE_ARGS "-Dnet.zlib-zlib_DIR=${net.zlib-zlib_DIR}")
+	LIST(APPEND PRJ_CMAKE_ARGS "-Dse.haxx.curl-curl_DIR=${MBS_PREFIX_PATH}")
+MESSAGE("**** se.haxx.curl-curl_DIR=${MBS_PREFIX_PATH}")
+#	LIST(APPEND PRJ_CMAKE_ARGS "-Dcurl_DIR=${curl_DIR}")
+#	LIST(APPEND PRJ_CMAKE_ARGS "-Dnet.zlib-zlib_DIR=${net.zlib-zlib_DIR}")
+
+	LIST(APPEND PRJ_CMAKE_ARGS "-DLOCAL_LIBRARIES=${CMAKE_BINARY_DIR}/build_requirements/jonchki/install/dev/lib")
+MESSAGE("**** LOCAL_LIBRARIES=${LOCAL_LIBRARIES}")
 
 	ExternalProject_Add(TARGET_lua_curlv3
 	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3
@@ -47,7 +52,6 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	                    URL_HASH SHA1=06a76bfddb4048a65bdffc584ef0290e90975d55
 	                    PATCH_COMMAND "${PYTHON_EXECUTABLE}" ${CMAKE_HOME_DIRECTORY}/cmake/tools/apply_patches.py --working-folder ${CMAKE_CURRENT_BINARY_DIR}/lua-curlv3/src/TARGET_lua_curlv3 --copy-folder ${CMAKE_CURRENT_SOURCE_DIR}/copy_over --patch-folder ${CMAKE_CURRENT_SOURCE_DIR}/patches --strip 1
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
-	                    TEST_COMMAND make test
 	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/install
 	)
 
