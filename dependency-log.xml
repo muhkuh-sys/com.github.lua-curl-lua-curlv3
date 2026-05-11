@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dependency-log>
-	<dependencies>
-		<dependency group="com.github.lua-curl" module="lua-curlv3" artifact="lua5.4-lua-curlv3" version="0.3.13.3"/>
-		<dependency group="se.haxx.curl" module="curl" artifact="curl" version="8.20.0.1"/>
-	</dependencies>
-	<build-dependencies>
-	</build-dependencies>
-</dependency-log>

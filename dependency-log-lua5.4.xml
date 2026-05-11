@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependency-log>
+	<dependencies>
+		<dependency group="com.github.google" module="brotli" artifact="brotli" version="1.2.0.1"/>
+		<dependency group="com.github.lua-curl" module="lua-curlv3" artifact="lua5.4-lua-curlv3" version="0.3.13.3"/>
+		<dependency group="com.github.nghttp2" module="nghttp2" artifact="nghttp2" version="1.53.0.1"/>
+		<dependency group="com.github.ngtcp2" module="nghttp3" artifact="nghttp3" version="1.15.0.1"/>
+		<dependency group="com.github.ngtcp2" module="ngtcp2" artifact="ngtcp2" version="1.20.0.1"/>
+		<dependency group="net.zlib" module="zlib" artifact="zlib" version="1.3.2.1"/>
+		<dependency group="org.gmplib" module="gmp" artifact="gmp" version="6.3.0.1"/>
+		<dependency group="org.gnu.libgcrypt" module="libgcrypt" artifact="libgcrypt" version="1.12.2.1"/>
+		<dependency group="org.gnu.libidn2" module="libidn2" artifact="libidn2" version="2.3.8.1"/>
+		<dependency group="org.gnupg" module="libgpg-error" artifact="libgpg-error" version="1.60.1"/>
+		<dependency group="org.gnutls" module="gnutls" artifact="gnutls" version="3.7.11.1"/>
+		<dependency group="org.libssh2" module="libssh2" artifact="libssh2" version="1.11.1.1"/>
+		<dependency group="org.lua" module="lua" artifact="lua" version="5.4.8.1"/>
+		<dependency group="se.haxx.curl" module="curl" artifact="curl" version="8.20.0.1"/>
+		<dependency group="se.lui.lysator.nisse" module="nettle" artifact="libnettle" version="3.10.2.1"/>
+	</dependencies>
+	<build-dependencies>
+	</build-dependencies>
+</dependency-log>
